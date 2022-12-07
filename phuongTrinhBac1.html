@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="bac1">
+    <h1>PHƯƠNG TRÌNH BẬC 1</h1>
+    <b>Nhập A</b><input id="nhapA">
+    <b>Nhập B</b><input id="nhapB">
+    <button onclick="giaiPtBac1()" type="button">Kết Quả</button>
+    <h3 id="dis"></h3>
+</div>
+
+<div class="bac2" style="margin-top: 200px">
+    <H2>PHƯƠNG TRÌNH BẬC 2</H2>
+    <b>Nhập A</b><input id="nhapA2">
+    <b>Nhập B</b><input id="nhapB2">
+    <b>Nhập C</b><input id="nhapC">
+    <button onclick="giaiPtBac2()" type="button">Kết Quả</button>
+    <h3 id="dis2"></h3>
+    <h3 id="dis3"></h3>
+</div>
+
+
+    <script>
+        // phuong trinh bac 1
+    function giaiPtBac1() {
+        let a = +document.getElementById('nhapA').value;
+        let b = +document.getElementById('nhapB').value;
+        let x = '';
+        if (a == 0 && b == 0) {
+            document.getElementById('dis').innerHTML = 'Phương trình vô số nghiệm'
+         } else if (a==0 && b!=0){
+            document.getElementById('dis').innerHTML = 'Phương trình vô nghiệm'
+        }else{
+            x=(-b/a);
+            document.getElementById('dis').innerHTML = +x +'Là nghiệm của phương trình';
+        }
+    }
+
+
+    //phuong trinh bac 2
+    function giaiPtBac2(){
+        let a1=+document.getElementById('nhapA2').value;
+        let b2=+document.getElementById('nhapB2').value;
+        let c=+document.getElementById('nhapC').value;
+        let x2='';
+        let x3='';
+
+        let delTa= (b2*b2)-(4*a1*c);
+
+        if (delTa<0){
+            document.getElementById('dis2').innerHTML='Phương trình vô nghiệm'
+        }else if(delTa=0){
+            x2=-(b2/a1*2);
+            x3=x2;
+            document.getElementById('dis2').innerHTML= +x2;
+            document.getElementById('dis3').innerHTML= +x3;
+        }else{
+            x2=(-b2+Math.sqrt(delTa))/(2*a1);
+            x3=(-b2-Math.sqrt(delTa))/(2*a1);
+
+            document.getElementById('dis2').innerHTML= 'x1='+x2;
+            document.getElementById('dis3').innerHTML='x2 ='+x3;
+        }
+    }
+</script>
+</body>
+</html>
